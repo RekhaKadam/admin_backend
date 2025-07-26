@@ -491,10 +491,8 @@ FROM menu_items
 ON CONFLICT (menu_item_id) DO NOTHING;
 
 -- ===============================================
--- FINAL MESSAGE
+-- SETUP COMPLETE
 -- ===============================================
 
-SELECT 
-    '🎉 MODULE 1 SETUP COMPLETE!' as status,
-    'Database schema, security policies, storage buckets, and inventory system are ready!' as message,
-    'Next: Create your admin user and start building the backend API!' as next_steps;
+-- Module 1 setup completed successfully
+-- Tables, policies, storage buckets, and functions are now ready

@@ -11,16 +11,9 @@ import { errorHandler } from './middleware/errorHandler.js';
 import { notFound } from './middleware/notFound.js';
 import { logger } from './utils/logger.js';
 
-// Import routes
-import authRoutes from './routes/auth.js';
-import adminRoutes from './routes/admin.js';
-import menuRoutes from './routes/menu.js';
-import orderRoutes from './routes/orders.js';
-import userRoutes from './routes/users.js';
-import analyticsRoutes from './routes/analytics.js';
-import uploadRoutes from './routes/upload.js';
 
-const app = express();
+
+const app: express.Application = express();
 
 // Initialize Supabase connection
 connectDB();
@@ -65,14 +58,6 @@ app.get('/health', (req, res) => {
   });
 });
 
-// API routes
-app.use(`/api/${config.apiVersion}/auth`, authRoutes);
-app.use(`/api/${config.apiVersion}/admin`, adminRoutes);
-app.use(`/api/${config.apiVersion}/menu`, menuRoutes);
-app.use(`/api/${config.apiVersion}/orders`, orderRoutes);
-app.use(`/api/${config.apiVersion}/users`, userRoutes);
-app.use(`/api/${config.apiVersion}/analytics`, analyticsRoutes);
-app.use(`/api/${config.apiVersion}/upload`, uploadRoutes);
 
 // 404 handler
 app.use(notFound);
